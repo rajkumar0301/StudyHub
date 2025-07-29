@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/Documents.css";
+import "../styles/documents.css";
 import { supabase } from "../supabaseClient";
 
 const categories = ["Assignments", "Study Notes", "Certificates", "Others"];
