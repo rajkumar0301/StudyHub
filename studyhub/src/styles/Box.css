@@ -1,0 +1,13 @@
+.box {
+  background-color: var(--box-bg, #f1f1f1);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: var(--text-color, #333);
+  transition: 0.3s;
+}
+
+.welcome-box {
+  background-color: #3f51b5;
+  color: white;
+}

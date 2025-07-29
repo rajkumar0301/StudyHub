@@ -1,0 +1,122 @@
+.attendance-wrapper {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  font-family: sans-serif;
+  color: #000;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.overall-box {
+  background: #9fe0ff;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.overall-box .percent {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.progress-bar {
+  height: 1px;
+  background: #fffefe;
+  border-radius: 5px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress {
+  height: 10%;
+  background: #3f3f3f;
+  transition: width 0.3s ease-in-out;
+}
+
+.add-subject {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-subject input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+}
+
+.add-subject button {
+  padding: 8px 12px;
+  background: #007acc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.subject-list {
+  display: grid;
+  gap: 15px;
+}
+
+.subject-card {
+  border: 1px solid #eab5b5;
+  padding: 15px;
+  border-radius: 10px;
+  background: #97c9ef;
+}
+
+.subject-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-group button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-group button:first-child {
+  background: #28a745;
+  color: white;
+}
+
+.btn-group button:last-child {
+  background: #dc3545;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .add-subject {
+    flex-direction: column;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,28 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f4f4f4;
+  overflow-x: hidden;
+}
+
+.hamburger {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  z-index: 1000;
+  cursor: pointer;
+  
+}
+
+.main {
+  margin-left: auto;
+  padding: 20px;
+  width: 100%;
+}
+
+.stats-box {
+  margin-top: 60px;
+}
