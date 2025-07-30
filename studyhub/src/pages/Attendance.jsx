@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "../styles/attendance.css";
 
 const Attendance = () => {
-  const [subjects, setSubjects] = useState([
-    { name: "", attended: 18, total: 20 },
-    { name: "", attended: 16, total: 18 },
-  ]);
+  // const [subjects, setSubjects] = useState([
+  //   { name: "", attended: 18, total: 20 },
+  //   { name: "", attended: 16, total: 18 },
+  // ]);
   const [newSubject, setNewSubject] = useState("");
 
   const handleAttendance = (index, type) => {
