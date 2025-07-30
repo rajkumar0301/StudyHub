@@ -10,11 +10,42 @@ const Register = () => {
   const [error, setError] = useState("");
 
   const handleRegister = async (e) => {
-    e.preventDefault();
-    const { error } = await supabase.auth.signUp(form);
-    if (error) setError(error.message);
-    else navigate("/dashboard");
-  };
+  e.preventDefault();
+  setError("");
+
+  const { email, password, name, MobileNumber } = form;
+
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        name,
+        mobile: MobileNumber,
+        avatar_url: "" // optional, can be updated later
+      }
+    }
+  });
+
+  if (error) {
+    setError(error.message);
+    return;
+  }
+
+  // ✅ Insert user data into 'profiles' table
+  if (data?.user) {
+    await supabase.from("profiles").insert([
+      {
+        id: data.user.id,
+        name,
+        mobile: MobileNumber,
+        avatar_url: ""
+      }
+    ]);
+  }
+
+  navigate("/dashboard");
+};
 
   return (
     <div className="auth-container">

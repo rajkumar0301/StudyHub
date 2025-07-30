@@ -1,36 +1,42 @@
-import React, { useContext, useState, useEffect, createContext } from "react";
-import { supabase } from "./supabaseClient";
+// src/context/authContext.jsx
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { supabase } from "./supabaseClient"; // Adjust path as needed
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); // show while checking auth
 
-  // ✅ Fix: use getSession() instead of session()
   useEffect(() => {
     const getSession = async () => {
       const { data, error } = await supabase.auth.getSession();
       if (error) {
         console.error("Error getting session:", error);
-      } else {
-        setUser(data.session?.user ?? null);
       }
+      setUser(data.session?.user ?? null);
+      setLoading(false);
     };
 
     getSession();
 
-    // ✅ Subscribe to auth state changes
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
     });
 
-    return () => {
-      listener.subscription.unsubscribe();
-    };
+    return () => subscription.unsubscribe();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        loading,
+        isAuthenticated: !!user,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -1,10 +1,12 @@
-// src/components/Header.jsx
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../supabaseClient";
 import "../styles/Header.css";
-import { supabase } from "../supabaseClient"; // ✅ adjust path if needed
 
 const Header = ({ toggleSidebar }) => {
   const [profileUrl, setProfileUrl] = useState(null);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getUserProfile = async () => {
@@ -15,10 +17,9 @@ const Header = ({ toggleSidebar }) => {
 
       if (error || !user) return;
 
-      // Fetch user profile data from 'profiles' table (adjust table/column name)
       const { data, error: profileError } = await supabase
         .from("profiles")
-        .select("avatar_url") // change to your column name
+        .select("avatar_url")
         .eq("id", user.id)
         .single();
 
@@ -30,15 +31,24 @@ const Header = ({ toggleSidebar }) => {
     getUserProfile();
   }, []);
 
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    navigate("/");
+  };
+
   return (
     <header className="header">
       <div className="menu-button" onClick={toggleSidebar}>☰</div>
       <div className="app-name">StudyHub</div>
-      <div className="profile-section">
-        <img
-          src={profileUrl || "/avatar.png"}
-          alt="Profile"
-        />
+
+      <div className="profile-section" onClick={() => setShowDropdown(!showDropdown)}>
+        <img src={profileUrl || "/avatar.png"} alt="Profile" />
+        {showDropdown && (
+          <div className="dropdown-menu">
+            {/* <div onClick={() => navigate("/profile")}>👤 My Profile</div>
+            <div onClick={handleLogout}>🚪 Logout</div> */}
+          </div>
+        )}
       </div>
     </header>
   );

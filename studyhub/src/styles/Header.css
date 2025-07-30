@@ -1,19 +1,19 @@
-/* src/styles/Header.css */
+
 .header {
   position: fixed;
   top: 0;
   width: 100%;
   height: 60px;
-  background-color: rgba(165, 206, 252, 0.6); /* translucent light blue */
-  backdrop-filter: blur(10px); /* actual blur effect */
-  -webkit-backdrop-filter: blur(10px); /* for Safari */
+  background-color: rgba(165, 206, 252, 0.6); 
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px); 
   color: rgb(0, 0, 0);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* optional soft border */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
 }
 
 
@@ -30,8 +30,8 @@
   background: linear-gradient(45deg, #ff4f4f, #443C68);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-decoration: none;       /* remove underline */
-  user-select: none;           /* disable text selection */
+  text-decoration: none;       
+  user-select: none;           
 }
 
 .profile-section {

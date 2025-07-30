@@ -1,4 +1,786 @@
-.attendance-wrapper {
+/* attendance.css */
+
+/* Global wrapper */
+/* Root container */
+.attendance-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Headline */
+.attendance-container h2 {
+  margin-bottom: 1.5rem;
+  color: #1e40af;
+  border-bottom: 2px solid #1e40af;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Inputs */
+.input {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0.5rem auto;
+  padding: 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Main Button */
+.btn {
+  display: block;
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  margin: 1rem auto;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Small buttons (PDF/Excel) */
+.btn-sm {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+}
+
+/* Filter Dropdown */
+.filter-container {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: black;
+}
+
+.filter-container select {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Attendance Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  color: black;
+}
+
+.table th,
+.table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table th {
+  background-color: #e0f2fe;
+  color: #0c4a6e;
+}
+
+.table tr:hover {
+  background-color: #f3f4f6;
+}
+
+/* Export Buttons */
+.export-btns {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .attendance-container {
+    padding: 1rem;
+  }
+
+  .input {
+    max-width: 100%;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .btn,
+  .btn-sm {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* attendance.css
+.attendance-container {
+  padding: 1rem;
+  max-width: 900px;
+  margin: auto;
+  font-family: sans-serif;
+}
+
+.attendance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.attendance-header h2 {
+  margin: 0;
+  color: #1d4ed8;
+}
+
+.attendance-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.input {
+  padding: 0.5rem;
+  min-width: 150px;
+  flex: 1;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: #1d4ed8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.btn:hover {
+  background-color: #2563eb;
+}
+
+.btn.small {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  background-color: #64748b;
+}
+
+.attendance-filter {
+  margin-bottom: 1rem;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+  .attendance-form {
+    flex-direction: column;
+  }
+
+  .btn,
+  .input {
+    width: 100%;
+  }
+
+  .attendance-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+.stats-box {
+  background-color: #f0f4ff;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.stat-item {
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+}
+
+.present {
+  color: green;
+}
+
+.absent {
+  color: red;
+}
+
+.total {
+  color: #333;
+}
+/* attendance.css *
+
+/* Base layout *
+.attendance-container {
+  padding: 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Subject Input + Button *
+.subject-input-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.subject-input-wrapper input,
+.subject-input-wrapper select,
+.subject-input-wrapper button {
+  flex: 1;
+  min-width: 150px;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Filter section *
+.filter-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-section label {
+  margin-right: 0.5rem;
+}
+
+.filter-section select {
+  padding: 0.4rem;
+}
+
+/* Attendance Table *
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.attendance-table th,
+.attendance-table td {
+  border: 1px solid #ccc;
+  padding: 0.6rem;
+  text-align: center;
+}
+
+.attendance-table th {
+  background-color: #f0f0f0;
+}
+
+/* Buttons - PDF and Excel *
+.export-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.export-buttons button {
+  flex: 1;
+  min-width: 140px;
+  padding: 0.6rem 1rem;
+  background-color: #2563eb; /* Tailwind blue-600 *
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.export-buttons button:hover {
+  background-color: #1e40af; /* Tailwind blue-800 *
+}
+
+/* Mobile specific adjustments *
+@media (max-width: 600px) {
+  .subject-input-wrapper,
+  .filter-section,
+  .export-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .attendance-table th,
+  .attendance-table td {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
+
+  .export-buttons button {
+    width: 100%;
+  }
+}
+ */
+
+
+
+
+
+/* .attendance-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.stats-box {
+  background: #1e40af;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form select,
+.form input,
+.form button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.form button {
+  cursor: pointer;
+  border: none;
+  background-color: #2563eb;
+  color: white;
+}
+
+.present-btn {
+  background-color: #16a34a;
+}
+
+.absent-btn {
+  background-color: #dc2626;
+}
+
+.attendance-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.attendance-table th,
+.attendance-table td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.attendance-table th {
+  background-color: #f3f4f6;
+}
+
+.present {
+  color: green;
+}
+
+.absent {
+  color: red;
+}
+
+.attendance-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.attendance-stats div {
+  flex: 1;
+  background: #f3f4f6;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Responsive *
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+  }
+
+  .attendance-stats {
+    flex-direction: column;
+  }
+} */
+
+
+
+
+
+
+/* .attendance-container {
+  max-width: 1000px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background: #f4f6f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.stats-box {
+  background-color: #1e40af;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.subject-add,
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.subject-add input,
+.form input,
+.form select {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.subject-add button,
+.form button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.attendance-table {
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.attendance-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.attendance-table th {
+  background-color: #e0e7ff;
+}
+
+/* Responsive *
+@media (max-width: 768px) {
+  .subject-add,
+  .form {
+    flex-direction: column;
+  }
+
+  .subject-add input,
+  .form input,
+  .form select,
+  .form button {
+    width: 100%;
+  }
+} */
+
+
+
+
+/* .attendance-container {
+  max-width: 800px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.input-row label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.input-row select,
+.input-row input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-width: 150px;
+}
+
+.btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.present,
+.absent {
+  padding: 0.6rem 1.2rem;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.present {
+  background-color: #34a853;
+}
+
+.absent {
+  background-color: #d93025;
+}
+
+.note-input {
+  margin-top: 1rem;
+}
+
+.note-input input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  margin-top: 2rem;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.text-green {
+  color: #34a853;
+  font-weight: bold;
+}
+
+.text-red {
+  color: #d93025;
+  font-weight: bold;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.stats div {
+  flex: 1 1 45%;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.stats h4 {
+  margin-bottom: 0.5rem;
+}
+table {
+  width: 100%;
+  margin-top: 2rem;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+table thead {
+  background-color: #1e3a8a;
+  color: white;
+}
+
+table th,
+table td {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 14px;
+}
+
+table td {
+  background-color: #f9f9f9;
+}
+ */
+
+
+
+/* .tracker-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.tracker-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.subject-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  padding: 8px;
+  min-width: 120px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.percentage {
+  font-weight: bold;
+  color: green;
+  min-width: 80px;
+  text-align: center;
+}
+
+.add-btn {
+  display: block;
+  margin: 1rem auto;
+  padding: 10px 16px;
+  background-color: #2e86de;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-btn:hover {
+  background-color: #1b4f72;
+}
+
+.overall-box {
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: #e6f0fa;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.overall-percent {
+  color: #2e86de;
+} */
+
+
+
+/* .attendance-wrapper {
   max-width: 900px;
   margin: auto;
   padding: 20px;
@@ -119,4 +901,4 @@ h1 {
   .btn-group {
     flex-direction: column;
   }
-}
+} */
