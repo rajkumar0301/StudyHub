@@ -8,13 +8,6 @@ import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 
 const Attendance = () => {
-<<<<<<< HEAD
-  const [subjects, setSubjects] = useState([
-  //   { name: "", attended: 18, total: 20 },
-  //   { name: "", attended: 16, total: 18 },
-   ]);
-  const [newSubject, setNewSubject] = useState("");
-=======
   const [attendanceData, setAttendanceData] = useState([]);
   const [status, setStatus] = useState("Present");
   const [note, setNote] = useState("");
@@ -23,7 +16,6 @@ const Attendance = () => {
   const [filterSubject, setFilterSubject] = useState("All");
   const tableRef = useRef();
   const user = useUser();
->>>>>>> 90bbd20 (Attendance header)
 
   useEffect(() => {
     fetchAttendance();
