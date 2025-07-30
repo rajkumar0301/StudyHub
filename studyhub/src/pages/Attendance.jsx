@@ -3,8 +3,8 @@ import "../styles/attendance.css";
 
 const Attendance = () => {
   const [subjects, setSubjects] = useState([
-    { name: "Math", attended: 18, total: 20 },
-    { name: "Physics", attended: 16, total: 18 },
+    { name: "", attended: 18, total: 20 },
+    { name: "", attended: 16, total: 18 },
   ]);
   const [newSubject, setNewSubject] = useState("");
 

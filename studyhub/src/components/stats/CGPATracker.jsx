@@ -5,7 +5,7 @@ const CGPATracker = () => {
   return (
     <div className="box">
       <h3>📊 CGPA</h3>
-      <p>8.56</p>
+      <p></p>
     </div>
   );
 };

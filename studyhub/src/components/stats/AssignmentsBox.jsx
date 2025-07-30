@@ -5,7 +5,7 @@ const AssignmentsBox = () => {
   return (
     <div className="box">
       <h3>📝 Assignments</h3>
-      <p>3 Pending</p>
+      <p> Pending</p>
     </div>
   );
 };

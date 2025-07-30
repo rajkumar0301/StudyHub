@@ -5,7 +5,7 @@ const AttendanceBox = () => {
   return (
     <div className="box">
       <h3>📈 Attendance</h3>
-      <p>92%</p>
+      <p></p>
     </div>
   );
 };
