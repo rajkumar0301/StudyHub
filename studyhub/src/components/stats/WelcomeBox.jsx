@@ -1,11 +1,12 @@
+// src/components/stats/WelcomeBox.jsx
 import React from "react";
-import "../stats/Box.css";
+import "../../styles/WelcomeBox.css";
 
-const WelcomeBox = () => {
+const WelcomeBox = ({ user }) => {
   return (
-    <div className="box welcome-box">
-      <h2>👋 Welcome, Rajkumar</h2>
-      <p>Hope you're having a productive study session!</p>
+    <div className="welcome-box">
+      <h2>Welcome, {user?.user_metadata?.name || user?.email || "Student"}! 🎉</h2>
+      <p>We're glad to have you here at StudyHub.</p>
     </div>
   );
 };

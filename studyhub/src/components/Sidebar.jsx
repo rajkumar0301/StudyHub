@@ -44,17 +44,17 @@ const Sidebar = ({ handleLogout, showSidebar, toggleSidebar }) => {
               ☰
             </button>
             {/* <h2 className="app-title">StudyHub</h2> */}
-            <img
+            {/* <img
               src="/profile.png"
               alt="Profile"
               className="profile-icon"
-            />
+            /> */}
           </div>
         )}
 
         {/* Sidebar Menu */}
         <div className="sidebar-menu">
-          <p className="username">👤 Raj Kumar Hembram</p>
+          <p className="username">👤</p>
           <ul>
             <li>
               <NavLink
