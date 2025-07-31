@@ -129,10 +129,11 @@ const Documents = () => {
             <h4>{cat}</h4>
             <p>{docCounts[cat] || 0} files</p>
           </div>
-        ))}
+        ))}    
       </div>
 
     <div className="file-list">
+      
          <h3>📑 Your Uploaded Documents</h3>
          {documents.length === 0 ? (
           <p>No documents uploaded yet.</p>
@@ -167,8 +168,7 @@ const Documents = () => {
             <a
               href={`https://tbkymthlztiwvpukfxps.supabase.co/storage/v1/object/public/documents/${doc.path}`}
               download
-              title="Download"
-            >
+              title="Download">
               ⬇️
             </a>
             <button onClick={() => handleDelete(doc)} title="Delete">
@@ -180,30 +180,7 @@ const Documents = () => {
     </ul>
   )}
 </div>
-
-
-
-
-      {/* <div className="file-list">
-        <h3>📑 Your Uploaded Documents</h3>
-        {documents.length === 0 ? (
-          <p>No documents uploaded yet.</p>
-        ) : (
-          <ul>
-            {documents.map((doc) => (
-              <li key={doc.id} className="doc-item">
-                <span>📄 {doc.name}</span>
-                <span>📁 {doc.category}</span>
-                <span>📅 {new Date(doc.created_at).toLocaleDateString()}</span>
-                <button className="delete-btn" onClick={() => handleDelete(doc)}>
-                  ❌ Delete
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div> */}
-    </div>
+</div>
   );
 };
 
