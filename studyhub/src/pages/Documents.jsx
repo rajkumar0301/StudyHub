@@ -55,30 +55,35 @@ const Documents = () => {
 
   // ✅ Handle upload
   const handleUpload = async () => {
-    if (!userId || !file) return;
+  if (!userId || !file) return;
 
-    setIsLoading(true);
-    const fileName = `${Date.now()}-${file.name}`;
-    const { data, error } = await supabase.storage
-      .from("documents")
-      .upload(fileName, file);
+  setIsLoading(true);
 
-    if (data) {
-      await supabase.from("documents").insert([
-        {
-          name: file.name,
-          category,
-          user_id: userId,
-          path: data.path,
-        },
-      ]);
-      setFile(null);
-      await fetchCounts();
-      await fetchDocuments();
-    }
+  const fileName = `${Date.now()}-${file.name}`;
+  const { data, error } = await supabase.storage
+    .from("documents")
+    .upload(fileName, file);
 
-    setIsLoading(false);
-  };
+  if (data) {
+    // ✅ Insert size in bytes and username (optional)
+    await supabase.from("documents").insert([
+      {
+        name: file.name,
+        category,
+        user_id: userId,
+        path: data.path,
+        size: file.size, // ✅ Save file size
+        uploaded_by: userId, // optional, save uploader info
+      },
+    ]);
+    setFile(null);
+    await fetchCounts();
+    await fetchDocuments();
+  }
+
+  setIsLoading(false);
+};
+
 
   // ✅ Delete a file with confirmation
   const handleDelete = async (doc) => {
@@ -127,7 +132,59 @@ const Documents = () => {
         ))}
       </div>
 
-      <div className="file-list">
+    <div className="file-list">
+         <h3>📑 Your Uploaded Documents</h3>
+         {documents.length === 0 ? (
+          <p>No documents uploaded yet.</p>
+          ) : (
+       <ul>
+         {documents.map((doc) => (
+           <li key={doc.id} className="doc-item">
+          <div className="doc-left">
+            <img src="/icons/microscope.svg" alt="icon" className="doc-icon" />
+            <div>
+              <div className="doc-name">📄 {doc.name}</div>
+              <div className="doc-meta">
+                <span>📁 {doc.category}</span> | 
+                <span>📅 {new Date(doc.created_at).toLocaleDateString()}</span> | 
+                <span>👤 {doc.user_name || "User"}</span> | 
+                <span>📦 {doc.size ? (doc.size / 1024).toFixed(1) + " KB" : "N/A"}</span>
+
+
+              </div>
+            </div>
+          </div>
+
+          <div className="doc-actions">
+            <a
+              href={`https://tbkymthlztiwvpukfxps.supabase.co/storage/v1/object/public/documents/${doc.path}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="View"
+            >
+              👁
+            </a>
+            <a
+              href={`https://tbkymthlztiwvpukfxps.supabase.co/storage/v1/object/public/documents/${doc.path}`}
+              download
+              title="Download"
+            >
+              ⬇️
+            </a>
+            <button onClick={() => handleDelete(doc)} title="Delete">
+              🗑
+            </button>
+          </div>
+        </li>
+      ))}
+    </ul>
+  )}
+</div>
+
+
+
+
+      {/* <div className="file-list">
         <h3>📑 Your Uploaded Documents</h3>
         {documents.length === 0 ? (
           <p>No documents uploaded yet.</p>
@@ -145,7 +202,7 @@ const Documents = () => {
             ))}
           </ul>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

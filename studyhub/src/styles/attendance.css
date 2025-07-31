@@ -1,8 +1,301 @@
 /* attendance.css */
 
-/* Global wrapper */
-/* Root container */
 .attendance-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e1e1e;
+}
+
+.Attendance-card {
+  background: #646966;
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stats-box {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  flex: 1;
+  background-color: #f6f6f6;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  min-width: 180px;
+}
+
+.stat-card h4 {
+  margin: 0;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.stat-card p {
+  margin: 4px 0 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.overall-card {
+  background: #2ecc71;
+  color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.overall-card .percentage {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.add-subject {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-subject input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.add-subject button {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  border: none;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-subject button:hover {
+  opacity: 0.9;
+}
+
+.mark-attendance {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.mark-attendance h3 {
+  margin-bottom: 10px;
+}
+
+.mark-attendance input[type="date"] {
+  padding: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.subject-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.subject-name {
+  font-weight: 500;
+  flex: 1;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.button-group button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button-group button:nth-child(1) {
+  background-color: #4caf50; /* Present */
+}
+
+.button-group button:nth-child(2) {
+  background-color: #f44336; /* Absent */
+}
+
+.button-group .delete-btn {
+  background-color: #9e9e9e; /* Delete */
+}
+
+@media (max-width: 500px) {
+  .subject-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button-group {
+    margin-top: 6px;
+    flex-wrap: wrap;
+  }
+}
+
+
+/* .mark-attendance {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.mark-attendance h3 {
+  margin-bottom: 10px;
+}
+
+.mark-attendance input[type="date"] {
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+} */
+
+.subject-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.subject-row span {
+  flex: 1;
+}
+
+.subject-row button {
+  flex: 1;
+  min-width: 100px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subject-row button:last-child {
+  background-color: #e74c3c;
+}
+
+.subject-row button:hover {
+  opacity: 0.85;
+}
+
+.subject-wise {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.subject-stat {
+  margin-bottom: 16px;
+}
+
+.subject-stat span {
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.bar {
+  height: 12px;
+  background: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: #27ae60;
+  transition: width 0.4s ease-in-out;
+}
+
+.subject-stat .stat {
+  float: right;
+  font-weight: bold;
+  color: #2d3436;
+}
+
+.export-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.export-btns button {
+  padding: 10px 20px;
+  background-color: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.export-btns button:hover {
+  background-color: #5a4ecb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .add-subject {
+    flex-direction: column;
+  }
+
+  .subject-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .export-btns {
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+
+
+/* .attendance-container {
   max-width: 900px;
   margin: 2rem auto;
   padding: 1.5rem;
@@ -11,7 +304,7 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Headline */
+
 .attendance-container h2 {
   margin-bottom: 1.5rem;
   color: #1e40af;
@@ -21,7 +314,7 @@
   font-size: 1.5rem;
 }
 
-/* Inputs */
+
 .input {
   display: block;
   width: 100%;
@@ -33,7 +326,7 @@
   font-size: 1rem;
 }
 
-/* Main Button */
+
 .btn {
   display: block;
   background-color: #2563eb;
@@ -51,13 +344,13 @@
   background-color: #1d4ed8;
 }
 
-/* Small buttons (PDF/Excel) */
+
 .btn-sm {
   font-size: 0.85rem;
   padding: 0.4rem 0.8rem;
 }
 
-/* Filter Dropdown */
+
 .filter-container {
   text-align: center;
   margin-top: 2rem;
@@ -73,7 +366,7 @@
   border: 1px solid #ccc;
 }
 
-/* Attendance Table */
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -100,7 +393,7 @@
   background-color: #f3f4f6;
 }
 
-/* Export Buttons */
+
 .export-btns {
   margin-top: 1.5rem;
   display: flex;
@@ -109,7 +402,7 @@
   gap: 1rem;
 }
 
-/* Responsive */
+
 @media (max-width: 600px) {
   .attendance-container {
     padding: 1rem;
@@ -130,7 +423,7 @@
     width: 100%;
     text-align: center;
   }
-}
+} */
 
 
 
