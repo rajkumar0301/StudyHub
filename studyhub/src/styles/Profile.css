@@ -1,28 +1,79 @@
 /* src/styles/Profile.css */
+
+/* 🔼 Layout aligned to top of screen */
 .profile-container {
   max-width: 500px;
-  margin: auto;
-  padding: 1rem;
+  margin: 4rem auto 2rem auto; /* Push it top */
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  top: 0;
 }
 
+/* 💜 Title style */
+h2 {
+  color: #4b0082;
+  margin-bottom: 1.5rem;
+}
+
+/* 📄 Form fields */
 .form-group {
-  margin-bottom: 1rem;
+  margin: 1.2rem 0;
+  text-align: left;
 }
 
-input, textarea {
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+input[type="text"],
+textarea {
   width: 100%;
-  padding: 0.5rem;
-  border-radius: 6px;
+  padding: 0.6rem;
+  border-radius: 8px;
   border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
 }
 
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #4b0082;
+}
+
+/* 🟣 Save Button */
 button {
-  padding: 0.5rem 1rem;
-  background: #4f46e5;
+  margin-top: 1.2rem;
+  background-color: #d7d4d8;
   color: white;
   border: none;
-  border-radius: 6px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #f8f7f9;
+}
+
+/* 🖼️ Avatar Image */
+.avatar-preview {
+  margin: 1rem auto;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 120px;
+  height: 120px;
+  border: 2px solid #4b0082;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 

@@ -35,6 +35,7 @@ function App() {
           <Route path="settings" element={<Settings />} />
           <Route path="percentage" element={<PercentageChecker />} />
           <Route path="CGPA" element={<CGPACalculator />} />
+        
         </Route>
       </Routes>
     </BrowserRouter>

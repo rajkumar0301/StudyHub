@@ -10,19 +10,19 @@
 
 .welcome-box h2 {
   font-size: 2rem;
-  color: #ffffff;
+  color: #ff0000;
   margin-bottom: 0.5rem;
 }
 
 .welcome-box p {
-  font-size: 1.1rem;
-  color: #ffffff;
+  font-size: 1.2rem;
+  color: #000000;
 }
 
-/* .welcome-box {
+.welcome-box {
   background: linear-gradient(to right, #6a11cb, #2575fc);
   color: white;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-} */
+}

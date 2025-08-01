@@ -144,8 +144,8 @@ Base sidebar styles
 /* Footer logout */
 .sidebar-footer {
   position: absolute;
-  bottom: 20px;
-  width: 100%;
+  bottom: 5px;
+  width: 90%;
 }
 
 .username {

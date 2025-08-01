@@ -68,6 +68,8 @@
   text-align: center;
   font-size: var(--font-size-sm);
   transition: transform 0.2s;
+  color: black;
+  font-size: large;
 }
 
 .stat-card span {

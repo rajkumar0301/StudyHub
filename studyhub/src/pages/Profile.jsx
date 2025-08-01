@@ -106,6 +106,14 @@ const Profile = () => {
       setProfile((prev) => ({ ...prev, avatar_url: avatarPath }));
     }
   };
+  if (!user) {
+  return (
+    <div className="profile-container">
+      <p>🔄 Loading profile...</p>
+    </div>
+  );
+}
+
 
   return (
     <div className="profile-container">

@@ -54,7 +54,7 @@ const Sidebar = ({ handleLogout, showSidebar, toggleSidebar }) => {
 
         {/* Sidebar Menu */}
         <div className="sidebar-menu">
-          <p className="username">👤</p>
+          <p className="username"></p>
           <ul>
             <li>
               <NavLink
@@ -75,13 +75,13 @@ const Sidebar = ({ handleLogout, showSidebar, toggleSidebar }) => {
               </NavLink>
             </li>
             <li>
-              <NavLink
+              {/* <NavLink
                 to="/dashboard/percentage"
                 onClick={toggleSidebar}
                 className={({ isActive }) => (isActive ? "active-link" : "")}
               >
                 📉 Percentage Calculator
-              </NavLink>
+              </NavLink> */}
             </li>
             <li>
               <NavLink
@@ -102,6 +102,7 @@ const Sidebar = ({ handleLogout, showSidebar, toggleSidebar }) => {
               </NavLink>
             </li>
             <li>
+              
               <NavLink
                 to="/dashboard/settings"
                 onClick={toggleSidebar}
